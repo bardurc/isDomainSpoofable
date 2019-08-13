@@ -50,13 +50,11 @@ with open('domains.yaml', encoding='utf-8') as f:
     for k, v in data.items():
         print('Analysing %s' % (v))
         spf = check_spf(v)
-        #has_spf = None
         if spf:
             has_spf = 'Yes'
         else:
             has_spf = 'No'
         dmarc = check_dmarc(v)[0]
-        #has_dmarc = None
         if dmarc:
             has_dmarc = 'Yes'
         else:
