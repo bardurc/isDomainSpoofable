@@ -13,7 +13,7 @@ Checks the status of SPF and DMARC for a domain
 Script reads domains from domains.yaml and parses spf and dmarc records, if they exist.
 Result is written to "result.csv".
 
-#Check multiple domains
+# Check multiple domains
 You can add as many domains as you want in "domains.yaml" file to check multiple domains in one go.
 Three domains are already added as an example.
 
