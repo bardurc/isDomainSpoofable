@@ -19,7 +19,7 @@ def check_spf(domain):
 def check_dmarc(domain):
     dmarc = None
     p_policy = None
-    dmarc_domain = '_dmarc.' + domain
+    dmarc_domain = f'_dmarc.{domain}'
     try:
         for r in dns.resolver.resolve(dmarc_domain, 'TXT'):
             # convert object to string and strip '"'
@@ -48,7 +48,7 @@ with open('domains.yaml', encoding='utf-8') as f:
     result = []
     data = yaml.load(f, Loader=yaml.FullLoader)
     for k, v in data.items():
-        print('Analysing %s' % (v))
+        print(f'Analysing {v}')
         spf = check_spf(v)
         if spf:
             has_spf = 'Yes'
