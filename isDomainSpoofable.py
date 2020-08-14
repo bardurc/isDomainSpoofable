@@ -6,7 +6,7 @@ import csv
 def check_spf(domain):
     spf = None
     try:
-        for r in dns.resolver.query(domain, 'TXT'):
+        for r in dns.resolver.resolve(domain, 'TXT'):
             # convert object to string and strip '"'
             rtext = r.to_text().lstrip('"').rstrip('"')
             # extract only spf records
@@ -21,7 +21,7 @@ def check_dmarc(domain):
     p_policy = None
     dmarc_domain = '_dmarc.' + domain
     try:
-        for r in dns.resolver.query(dmarc_domain, 'TXT'):
+        for r in dns.resolver.resolve(dmarc_domain, 'TXT'):
             # convert object to string and strip '"'
             rtext = r.to_text().lstrip('"').rstrip('"')
             # extract only dmarc records
